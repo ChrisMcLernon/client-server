@@ -38,9 +38,9 @@ if __name__ == "__main__":
             continue
 
         try:
-            operand1 = float(input("Enter first operand: "))
+            operand1 = float(input("Enter first operand: ").strip())
 
-            operand2 = float(input("Enter second operand: "))
+            operand2 = float(input("Enter second operand: ").strip())
         
             result = send_operations(operation, operand1, operand2)
             print(f"Result: {result}")
