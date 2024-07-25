@@ -1,3 +1,4 @@
+from random import Random
 import socket
 import struct
 import time
@@ -31,9 +32,8 @@ def send_operations(operation, operand1,operand2):
             
             except ConnectionRefusedError:
                 print("Connection Refused")
-                timer = pow(20, i)
-                if timer > 8000:
-                    timer = 20
+                rand = Random()
+                timer = rand.randint(0, 60) * i
                 print(f"Retrying in {timer} seconds.")
                 time.sleep(timer)
                 continue
