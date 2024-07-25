@@ -57,7 +57,7 @@ def handle_client(conn, addr):
         except ValueError as e:
             logging.error(f"Operation error: {e}")
             conn.sendall(struct.pack('!d', float('nan')))
-        
+
         logging.info(f"Connection closed with {addr}")
     finally:
         conn.close()
