@@ -24,7 +24,7 @@ Sends an arithmetic operation to a server, receives the result, and returns it.
 ```sh
 python
 result = send_operations('+', 5.0, 3.0)
-print(result)  # Output: 8.0
+print(result)  # Output: 8
 ```
 
 ### Main Execution
@@ -44,7 +44,11 @@ $ python client.py
 Enter operation (+, -, *, /, ! to exit): +
 Enter first operand: 5
 Enter second operand: 3
-Result: 8.0
+Result: 8
+Enter operation (+, -, *, /, ! to exit): +
+Enter first operand: 5.1
+Enter second operand: 3
+Result: 8.1
 Enter operation (+, -, *, /, ! to exit): !
 Exiting...
 ```
