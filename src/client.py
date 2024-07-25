@@ -14,26 +14,27 @@ def send_operations(operation, operand1,operand2):
     Returns:
     float or int: Result of the operation if successful rounded or integer if result is an integer.
     """
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
-        for i in range(5):
-            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
-                try:
-                    client_socket.connect(('localhost', 12345))
-                    print("Server is running.")
-                    packed_data = struct.pack('!cdd', operation.encode(), operand1, operand2)
-                    client_socket.sendall(packed_data)
+    i = 0
+    while True:
+        i += 1
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
+            try:
+                client_socket.connect(('localhost', 12345))
+                packed_data = struct.pack('!cdd', operation.encode(), operand1, operand2)
+                client_socket.sendall(packed_data)
 
-                    result = client_socket.recv(8)
-                    result = struct.unpack('!d', result)[0]
+                result = client_socket.recv(8)
+                result = struct.unpack('!d', result)[0]
 
-                    formatted_result = round(result, 4)
-                    return int(formatted_result) if formatted_result.is_integer() else formatted_result
-                
-                except ConnectionRefusedError:
-                    print("Server is not running.")
-                    print("Retrying...")
-                    time.sleep(i * 60)
-                    continue
+                formatted_result = round(result, 4)
+                return int(formatted_result) if formatted_result.is_integer() else formatted_result
+            
+            except ConnectionRefusedError:
+                print("Connection Refused")
+                timer = pow(2, i)
+                print(f"Retrying in {timer} seconds.")
+                time.sleep(timer)
+                continue
     
 def inputHandler():
     while True:
