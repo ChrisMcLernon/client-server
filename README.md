@@ -37,6 +37,7 @@ If the user enters !, the program exits.
 If the user enters an unsupported operation, it prints an error message and continues.
 Prompts the user to enter two operands.
 Calls send_operations with the entered operation and operands.
+Retries if connection refused (tries ^ 60)
 Prints the result of the operation.
 Handles any exceptions that occur during input or operation processing.
 
