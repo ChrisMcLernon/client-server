@@ -2,6 +2,17 @@ import socket
 import struct
 
 def send_operations(operation, operand1,operand2):
+    """
+    Sends an arithmetic operation to a server, receives the result, and returns it.
+
+    Args:
+    operation (str): The operation to perform ('+', '-', '*', '/', '!' to exit).
+    operand1 (float): The first operand for the operation.
+    operand2 (float): The second operand for the operation.
+
+    Returns:
+    float or int: Result of the operation if successful rounded or integer if result is an integer.
+    """
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as client_socket:
         client_socket.connect(('localhost', 12345))
 
