@@ -31,9 +31,9 @@ def send_operations(operation, operand1,operand2):
             
             except ConnectionRefusedError:
                 print("Connection Refused")
-                timer = pow(60, i)
-                if timer > 240:
-                    timer = 240
+                timer = pow(20, i)
+                if timer > 8000:
+                    timer = 20
                 print(f"Retrying in {timer} seconds.")
                 time.sleep(timer)
                 continue
