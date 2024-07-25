@@ -25,6 +25,9 @@ Sends an arithmetic operation to a server, receives the result, and returns it.
 python
 result = send_operations('+', 5.0, 3.0)
 print(result)  # Output: 8
+
+result = send_operations('+', 5.1, 3.0)
+print(result)  # Output: 8.1
 ```
 
 ### Main Execution
