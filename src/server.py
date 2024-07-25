@@ -44,7 +44,7 @@ def handle_client(conn, addr):
 def start_server(host, port):
     logging.basicConfig(level=logging.INFO)
     server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    server_socket.bind(host, port)
+    server_socket.bind((host, port))
     server_socket.listen(5)
     logging.info(f"Server started on {host}:{port}")
 
