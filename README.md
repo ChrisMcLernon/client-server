@@ -22,7 +22,6 @@ Sends an arithmetic operation to a server, receives the result, and returns it.
 
 #### Example Usage:
 ```sh
-python
 result = send_operations('+', 5.0, 3.0)
 print(result)  # Output: 8
 
